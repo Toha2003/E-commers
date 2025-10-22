@@ -6,6 +6,7 @@ import IphoneImg from "../Components/Assets/product images/Iphone_img.png";
 import SalesTimer from "../Components/timer/SalesTimer";
 import CardProducts from "../Components/cards/CardProducts";
 import LoadingPage from "./LoadingPage";
+import Carousel from "../Components/carousel/Carousel";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -17,7 +18,7 @@ const HomePage = () => {
       try {
         const { data } = await productApi.get("products");
         setProducts(data.products);
-        const limetData = await productApi.get('products?limit=10&')
+        const limetData = await productApi.get('products?limit=5&')
         setLimetProducts(limetData.data.products)
       } catch (error) {
         console.log(error);
@@ -27,8 +28,7 @@ const HomePage = () => {
     };
 
     response();
-  }, []);
-  console.log(limetProducts);
+  }, []);  
 
   return (
     <main className="w-[1170px] mx-auto Home__page">
@@ -44,29 +44,9 @@ const HomePage = () => {
           <NavLink >Groceries & Pets</NavLink>
           <NavLink >Health & Beauty</NavLink>
         </div>
-        <div className="p-[40px_0_0_45px]">
-          <div className="bg-black w-[892px] flex relative">
-            <div className="w-[45%] flex justify-center flex-col gap-5 p-[58px_38px_47px_64px]">
-              <div className="flex  items-center gap-6">
-                <img src={AppleIcon} alt="" width={40} />
-                <h5 className="text-white">iPhone 14 Series</h5>
-              </div>
-              <h3 className="text-5xl font-semibold text-white">
-                Up to 10% off Voucher
-              </h3>
-              <NavLink className="text-white tex">Shop Now</NavLink>
-            </div>
-            <div className="pt-4 flex justify-center">
-              <img src={IphoneImg} alt="" />
-            </div>
-            <div className="absolute bottom-3 right-[50%] flex gap-3">
-              <div className=" cursor-pointer w-3 h-3 rounded-[50%] bg-gray-300 "></div>
-              <div className=" cursor-pointer w-3 h-3 rounded-[50%] bg-gray-300 "></div>
-              <div className=" cursor-pointer w-3 h-3 rounded-[50%] bg-gray-300 "></div>
-              <div className=" cursor-pointer w-3 h-3 rounded-[50%] bg-gray-300 "></div>
-              <div className=" cursor-pointer w-3 h-3 rounded-[50%] bg-gray-300 "></div>
-            </div>
-          </div>
+        <div className="p-[40px_0_0_45px] flex justify-center items-center w-full">
+          {loading?<h1 className="text-3xl text-center block">Loading...</h1>:<Carousel  items={limetProducts}/>}
+          
         </div>
       </section>
       <section className="p-[140px_0_80px] border-b border-b-gray-400">
@@ -97,7 +77,8 @@ const HomePage = () => {
           }
         </div>
 
-        <div></div>
+        <div>
+        </div>
       </section>
     </main>
   );
