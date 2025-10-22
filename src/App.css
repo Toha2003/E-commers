@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+/* Add to card css */
+.Home__page .container__addToCard:hover .addToCard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(20px);
+  animation: slideUpFade 0.5s cubic-bezier(.22,.9,.38,1) forwards;
+  opacity: 0;
+}
+@keyframes slideUpFade {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Add to card css */
+
+.Home__page .products-scroll{
+ scrollbar-width: none;
+}

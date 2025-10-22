@@ -7,10 +7,10 @@ const Layout = () => {
   return (
     <div className="container mx-auto">
       <Header/>
-      <main className="w-[1170px] mx-auto">
+      <main className="container mx-auto">
         <Outlet />
-      </main>
-      <Footer />
+      </main >
+      <Footer/>
     </div>
   );
 };

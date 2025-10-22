@@ -3,6 +3,7 @@ import { Suspense, useState, useEffect, lazy } from "react";
 
 import { ToastContainer } from "react-toastify";
 import "./App.css";
+import NewsCard from "./Components/news/NewsCard";
 
 // PAges
 const HomePage = lazy(() => import("./pages/HomePage"));
@@ -18,6 +19,7 @@ const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const ProductPage = lazy(() => import("./pages/ProductPage"));
 const Layout = lazy(() => import("./layout"));
+const NewsPage =lazy(()=>import("./pages/NewsPage")) ;
 
 
 function App() {
@@ -72,6 +74,10 @@ function App() {
           <Route path="about" element={<AboutPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="product" element={<ProductPage />} />
+          <Route path="news" >
+            <Route index element={<NewsPage />} />
+            <Route path=":newId" element={<NewsCard/>}/>
+          </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
