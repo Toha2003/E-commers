@@ -7,6 +7,7 @@ import SalesTimer from "../Components/timer/SalesTimer";
 import CardProducts from "../Components/cards/CardProducts";
 import LoadingPage from "./LoadingPage";
 import Carousel from "../Components/carousel/Carousel";
+import Button from "../Components/button/Button";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -63,7 +64,9 @@ const HomePage = () => {
             <div>
               <SalesTimer/>
             </div>
-            <div></div>
+            <div>
+              
+            </div>
           </div>
         </div>
 
@@ -77,8 +80,23 @@ const HomePage = () => {
           }
         </div>
 
-        <div>
+        <div className="flex justify-center items-center pt-[60px]">
+          <Button >View All Products</Button>
         </div>
+      </section>
+      
+      <section className="py-20">
+        <div>
+          <div className="flex gap-4 items-center">
+            <div className="w-5 h-10 bg-[rgba(219,_68,_68,_1)] rounded-[4px] "></div>
+            <h5 className="text-[rgba(219,_68,_68,_1)] font-semibold">Categories</h5>
+          </div>
+          <div className="flex justify-between ">
+            <h3>Browse By Category</h3>
+            <div></div>
+          </div>
+        </div>
+        <div></div>
       </section>
     </main>
   );
